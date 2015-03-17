@@ -1,0 +1,19 @@
+
+1.mysql-->hdfs 脚本
+db_connect = 'jdbc:mysql://00.00.00.00:3306/$db_name'
+db_name = ''
+db_password = ''
+querysql = "SELECT id, DATE_FORMAT(createTime,'%Y-%m-%d %H:%i:%s') as createTime from $db_table_name WHERE \$CONDITIONS"
+hdfspath = /xxx/xxxx
+
+sqoop import --connect $db_connect --username $db_name --password $db_password --query $querysql --target-dir $hdfspath -m 1
+
+注意：--table对于mysql的datetime类型在导入时报stream is still alive错
+
+2.hive建库、建表
+hive>show create table xxx;
+hive>create database xxx location $hdfspath;
+hive>create external table $db_table_name(id INT,createTime STRING)ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE LOCATION $hdfsfullpath;
+
+3.impala refresh
+
