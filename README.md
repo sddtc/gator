@@ -1,6 +1,7 @@
 # gator --短吻鳄
 
-sqoop
+sqoop--->hdfs
+
 hdfs
 hive
 impala
