@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>impala-tool</groupId>
+	<artifactId>impala-tool</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+        <!-- 
+           other dependencies...
+           spring..
+        -->
+
+	<!--java link impala driver jar start -->
+	<dependency>
+		<groupId>org.apache.hive</groupId>
+		<artifactId>hive-jdbc</artifactId>
+		<version>0.13.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.hive</groupId>
+		<artifactId>hive-metastore</artifactId>
+		<version>0.13.1</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>jetty</artifactId>
+				<groupId>org.mortbay.jetty</groupId>
+			</exclusion>
+			<exclusion>
+				<artifactId>jetty-util</artifactId>
+				<groupId>org.mortbay.jetty</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.hive</groupId>
+		<artifactId>hive-exec</artifactId>
+		<version>0.13.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.hive</groupId>
+		<artifactId>hive-service</artifactId>
+		<version>0.13.1</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>jetty-all</artifactId>
+				<groupId>org.eclipse.jetty.aggregate</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<!--java link impala driver jar end -->
+	</dependencies>
+</project>

@@ -1,0 +1,12 @@
+<script type="text/javascript"
+	src="lab.js"></script>
+<div class="container-fluid" ng-app>
+	<div class="row-fluid" ng-controller="impalaCtrl">
+		<input type="text" class="span6 m-wrap" placeholder="输入sql(例如:select url from page_view limit 10)，回车搜索"
+			ng-model="content" ng-keypress="go($event)">
+
+		<div class="panel panel-default">
+			<div class="panel-body" stype="display:none;">{{result}}</div>
+		</div>
+	</div>
+</div>
